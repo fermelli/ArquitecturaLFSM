@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="proxy-basic-implementation">
+  <ClassDiagramComponents>
+    <Class name="ConcreteSubject" package="basicimplementation" visibility="public" xPosition="601.0" yPosition="223.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doSomeWork" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Proxy" package="basicimplementation" visibility="public" xPosition="253.0" yPosition="398.0">
+      <Fields>
+        <Field name="cs" type="Subject" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="doSomeWork" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Subject" package="basicimplementation" visibility="public" isAbstract="true" xPosition="253.0" yPosition="64.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="doSomeWork" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="main" visibility="public" xPosition="917.0" yPosition="280.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="basicimplementation.Proxy" target="basicimplementation.Subject"/>
+    <HasRelation name="cs" source="basicimplementation.Proxy" target="basicimplementation.Subject" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="basicimplementation.ConcreteSubject" target="basicimplementation.Subject"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

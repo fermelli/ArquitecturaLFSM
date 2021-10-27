@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="proxy-geometry-calculator">
+  <ClassDiagramComponents>
+    <Class name="Circle" package="geometrycalculator" visibility="public" xPosition="134.0" yPosition="137.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GeometryBean" package="geometrycalculator" visibility="public" xPosition="240.0" yPosition="580.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="calculateCircleCircumference" returnType="double" visibility="public">
+          <Argument type="Circle" name="circle"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GeometryBeanProxy" package="geometrycalculator" visibility="public" xPosition="587.0" yPosition="376.0">
+      <Fields>
+        <Field name="bean" type="IGeometryCalculatorBean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="doJNDILookup" returnType="IGeometryCalculatorBean" visibility="private">
+          <Argument type="String" name="urlProvider"/>
+          <Argument type="String" name="securityPrincipal"/>
+          <Argument type="String" name="securityCredentials"/>
+        </Method>
+        <Method name="calculateCircleCircumference" returnType="double" visibility="public">
+          <Argument type="Circle" name="circle"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="main" visibility="public" xPosition="394.0" yPosition="770.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IGeometryCalculatorBean" package="geometrycalculator" visibility="public" xPosition="488.0" yPosition="70.0">
+      <Methods>
+        <Method name="calculateCircleCircumference" returnType="double" visibility="public">
+          <Argument type="Circle" name="circle"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Enum name="GeometryCalculatorBeanFactory" package="geometrycalculator" visibility="public" xPosition="732.0" yPosition="682.0">
+      <Literals>
+        <Literal name="LOCAL"/>
+        <Literal name="REMOTE_PROXY"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="geometrycalculator.GeometryBean" target="geometrycalculator.IGeometryCalculatorBean"/>
+    <UseRelation source="geometrycalculator.GeometryBeanProxy" target="geometrycalculator.Circle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="geometrycalculator.GeometryBeanProxy" target="geometrycalculator.IGeometryCalculatorBean" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bean" source="geometrycalculator.GeometryBeanProxy" target="geometrycalculator.IGeometryCalculatorBean" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="geometrycalculator.GeometryBean" target="geometrycalculator.Circle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="geometrycalculator.GeometryBeanProxy" target="geometrycalculator.IGeometryCalculatorBean"/>
+    <UseRelation source="geometrycalculator.IGeometryCalculatorBean" target="geometrycalculator.Circle" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="proxy-pet-shop">
+  <ClassDiagramComponents>
+    <Class name="Main" package="main" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AnimalFeederProxy" package="petshop" visibility="public" xPosition="863.0" yPosition="443.0">
+      <Fields>
+        <Field name="animalFeeder" type="IAnimalFeeder" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="feeder"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="dropFood" returnType="String" visibility="public">
+          <Argument type="int" name="hungerLevel"/>
+          <Argument type="boolean" name="water"/>
+        </Method>
+        <Method name="displayFood" returnType="String" visibility="public">
+          <Argument type="int" name="hungerLevel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cat" package="petshop" visibility="public" xPosition="465.0" yPosition="587.0">
+      <Fields>
+        <Field name="petName" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="petName"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="dropFood" returnType="String" visibility="public">
+          <Argument type="int" name="hungerLevel"/>
+          <Argument type="boolean" name="water"/>
+        </Method>
+        <Method name="displayFood" returnType="String" visibility="public">
+          <Argument type="int" name="hungerLevel"/>
+        </Method>
+        <Method name="selectFood" returnType="String" visibility="protected">
+          <Argument type="int" name="hungerLevel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Dog" package="petshop" visibility="public" xPosition="113.0" yPosition="378.0">
+      <Fields>
+        <Field name="petName" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="petName"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="dropFood" returnType="String" visibility="public">
+          <Argument type="int" name="hungerLevel"/>
+          <Argument type="boolean" name="water"/>
+        </Method>
+        <Method name="displayFood" returnType="String" visibility="public">
+          <Argument type="int" name="hungerLevel"/>
+        </Method>
+        <Method name="selectFood" returnType="String" visibility="protected">
+          <Argument type="int" name="hungerLevel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IAnimalFeeder" package="petshop" visibility="public" xPosition="497.0" yPosition="92.0">
+      <Methods>
+        <Method name="dropFood" returnType="String" visibility="public" isAbstract="true">
+          <Argument type="int" name="hungerLevel"/>
+          <Argument type="boolean" name="water"/>
+        </Method>
+        <Method name="displayFood" returnType="String" visibility="public" isAbstract="true">
+          <Argument type="int" name="hungerLevel"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="petshop.Cat" target="petshop.IAnimalFeeder"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="petshop.Dog" target="petshop.IAnimalFeeder"/>
+    <HasRelation name="animalFeeder" source="petshop.AnimalFeederProxy" target="petshop.IAnimalFeeder" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="petshop.AnimalFeederProxy" target="petshop.IAnimalFeeder"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

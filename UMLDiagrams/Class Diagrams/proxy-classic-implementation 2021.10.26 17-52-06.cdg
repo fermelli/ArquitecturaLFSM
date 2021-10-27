@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="proxy-classic-implementation">
+  <ClassDiagramComponents>
+    <Class name="ProxyTextStore" package="classicimplementation" visibility="public" xPosition="550.0" yPosition="396.0">
+      <Fields>
+        <Field name="textStore" type="TextStore" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="save" returnType="void" visibility="public">
+          <Argument type="String" name="data"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TextStore" package="classicimplementation" visibility="public" xPosition="95.0" yPosition="434.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="save" returnType="void" visibility="public">
+          <Argument type="String" name="data"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="main" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IStore" package="classicimplementation" visibility="public" xPosition="220.0" yPosition="133.0">
+      <Methods>
+        <Method name="save" returnType="void" visibility="package">
+          <Argument type="String" name="data"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="classicimplementation.TextStore" target="classicimplementation.IStore"/>
+    <HasRelation name="textStore" source="classicimplementation.ProxyTextStore" target="classicimplementation.TextStore" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="classicimplementation.ProxyTextStore" target="classicimplementation.IStore"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
